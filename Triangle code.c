@@ -40,20 +40,21 @@ int main(){
    if(a&&b&&c){
        printf("Triangle is valid\n");
  //if triangle is valid, it proceeds to check for the type of triangle
-       if(side1==side2==side3){
+       if(side1==side2&&side2==side3){
            printf("Type of triangle: Equilateral triangle\n");
        }else if(side1==side2||side1==side3||side2==side3){
            printf("Type of triangle: Isosceles triangle\n");
        }else if(side1 !=side2 !=side3){
            printf("Type of triangle: Scalene triangle\n");
        }
-       else if( (pow(side1,2)+pow(side2,2))==pow(side3,2)){
+       else if((pow(side1,2)+pow(side2,2))==pow(side3,2)||((pow(side1,2)+pow(side3,2)==pow(side2,2)))||((pow(side2,2)+pow(side3,2)==pow(side1,2)))){
            printf("Type of triangle: Right angled triangle");
        }
    }
    else { printf("Triangle is invalid\n");}
-   s=side1+side2+side3;//Calculating s
+   s=((side1+side2+side3)/2);//Calculating s
    Area=sqrt((s) * (s-side1) * (s-side2) * (s-side3));//Area of triangle
    printf("Area of triangle=%.0f square units",Area);
   return 0;
 }
+  
